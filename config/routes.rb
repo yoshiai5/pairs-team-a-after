@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   end
   resources:relationships, only: [:create, :destroy]
 
-  get 'messages' => 'pairs#messages_index'
   get 'violation' => 'pairs#violation'
   #いいね関連のrouting
   get 'like/from_partner' => 'pairs#from_partner'
