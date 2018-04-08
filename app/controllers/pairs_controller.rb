@@ -17,13 +17,14 @@ class PairsController < ApplicationController
   end
 
   def search_one
-    @users = User.page(params[:page]).per(1)
-    save_foot(@users[0].id)
-    # @communities = user.communities.page(params[:page]).per(12)
-  end
+    # @users = User.page(params[:page]).per(1)
 
-  def myprofile
-    @user = User.find(current_user)
+    if current_user.gender == "male"
+      @users = User.where(gender: 2).page(params[:page]).per(1)
+    else
+      @users = User.where(gender: 1).page(params[:page]).per(1)
+    end
+    save_foot(@users[0].id)
   end
 
   def from_partner

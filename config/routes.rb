@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   get 'like/from_me'  => 'pairs#from_me'
   get 'like/favorite' => 'pairs#favorite'
   #自分・異性の詳細ページ関連のrouting
-  get "myprofile" => "pairs#myprofile"
   get "searchone" => "pairs#search_one"
   #足あと関連のrouting
   get "createfoot" => "pairs#create_foot"
