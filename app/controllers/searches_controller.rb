@@ -16,6 +16,7 @@ class SearchesController < ApplicationController
     @height = Height.all
     @age = Age.all
     @income = Income.all
+    @blood = Blood.all
   end
 
   def search_result
@@ -31,7 +32,9 @@ class SearchesController < ApplicationController
   end
 
   private
+
   def search_params
+    # 検索のスタイルによって、下記のスタイルが異なる
     params.require(:q).permit(
       :income_id_gteq, :income_id_lteq,
       :age_id_gteq, :age_id_lteq,
@@ -39,6 +42,7 @@ class SearchesController < ApplicationController
       :residence_id_eq,
       :smoke_id_eq,
       :occupancy_id_eq,
+      :blood_id_eq,
       alcohol_id_in:[],
       school_id_in:[],
       body_id_in:[],
