@@ -24,10 +24,11 @@ class User < ApplicationRecord
 #user_imageとのアソシエーション
   has_many :UserImages, foreign_key: "user_id"
 
+#コミュニティ機能とのアソシエーション
   has_many :communities, through: :members, dependent: :destroy
   has_many :members
 
-
+#詳細プロフィールとのアソシエーション
   belongs_to :residence,  optional: true
   belongs_to :alcohol,  optional: true
   belongs_to :smoke,  optional: true
@@ -39,6 +40,7 @@ class User < ApplicationRecord
   belongs_to :height,  optional: true
   belongs_to :age,  optional: true
   belongs_to :income,  optional: true
+  belongs_to :blood,  optional: true
 
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)

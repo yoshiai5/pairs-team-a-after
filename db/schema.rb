@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402014124) do
+ActiveRecord::Schema.define(version: 20180408165105) do
 
   create_table "ages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "age",        null: false
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 20180402014124) do
 
   create_table "alcohols", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "frequency",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bloods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "blood_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -170,8 +176,10 @@ ActiveRecord::Schema.define(version: 20180402014124) do
     t.integer  "height_id"
     t.integer  "age_id"
     t.integer  "income_id"
+    t.integer  "blood_id"
     t.index ["age_id"], name: "index_users_on_age_id", using: :btree
     t.index ["alcohol_id"], name: "index_users_on_alcohol_id", using: :btree
+    t.index ["blood_id"], name: "index_users_on_blood_id", using: :btree
     t.index ["body_id"], name: "index_users_on_body_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["height_id"], name: "index_users_on_height_id", using: :btree
@@ -194,6 +202,7 @@ ActiveRecord::Schema.define(version: 20180402014124) do
   add_foreign_key "user_images", "users"
   add_foreign_key "users", "ages"
   add_foreign_key "users", "alcohols"
+  add_foreign_key "users", "bloods"
   add_foreign_key "users", "bodies"
   add_foreign_key "users", "heights"
   add_foreign_key "users", "holidays"
