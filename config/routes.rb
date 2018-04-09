@@ -21,14 +21,12 @@ Rails.application.routes.draw do
   end
   resources:relationships, only: [:create, :destroy]
 
-  get 'messages' => 'pairs#messages_index'
   get 'violation' => 'pairs#violation'
   #いいね関連のrouting
   get 'like/from_partner' => 'pairs#from_partner'
   get 'like/from_me'  => 'pairs#from_me'
   get 'like/favorite' => 'pairs#favorite'
   #自分・異性の詳細ページ関連のrouting
-  get "myprofile" => "pairs#myprofile"
   get "searchone" => "pairs#search_one"
   #足あと関連のrouting
   get "createfoot" => "pairs#create_foot"

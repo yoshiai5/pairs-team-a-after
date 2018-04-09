@@ -1,1 +1,15 @@
-.create クリエイト完了
+.ui-view_class
+  .main.box_community_view.contents_padding
+    .common_page_header
+      =link_to "マイページTOP", user_path, class:"page_back button_f button_white_a"
+
+    .common_page_box.community_success_box
+      %p.common_title
+        プロフィール編集完了。
+      .common_box_inner
+        %p.common_text.mb40
+          プロフィールが編集完了しました。
+        .common_button_area
+          %p.button_item.w50p
+            = link_to "マイページトップに戻る", user_path, class:"button_a button_gray_a"
+

@@ -24,6 +24,14 @@
   padding: 4px 10px 6px;
   border-radius: 30px;
 }
+@mixin button_d {
+  font-size: 1.4rem;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 30px;
+}
 @mixin button_e {
   font-size: 2.2rem;
   font-size: 22px;
@@ -31,14 +39,6 @@
   display: block;
   padding: 16px;
   text-align: center;
-  border-radius: 30px;
-}
-@mixin button_d {
-  font-size: 1.4rem;
-  font-size: 14px;
-  display: block;
-  text-align: center;
-  padding: 8px 10px;
   border-radius: 30px;
 }
 @mixin button_f {
