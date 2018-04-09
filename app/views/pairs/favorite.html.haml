@@ -1,43 +1,40 @@
 .from_partner
   .main.box_like_view.contents_padding
-    .header-banner
-      .banner_contents
-        .banner_common
-          .carousel
-            .carousel_item
-              = link_to "","",class: "banner_link"
-
+    = render partial: "pairs/shared/advertising"
 
     .from-partner
       .common_page_header
         %span.page_tile.icon_square お気に入り
         .box_button_withdrawal
           %span
+            =link_to "退会者を非表示","",class: "button_withdrawal top button_f button_white_a"
 
       .partners
-        .lookPartners
-          #box_like_recommend.box_like_recommend.mb15
-            .box_recommend_user
-              =image_tag "https://static-pairs.akamaized.net/public/img/pc/img_jp/like/like_from_callout.png"
-              %ul#recommend_box.recommend_user_list
-                %li.recommend_user_item
-                  =link_to do
-                    =image_tag "https://lh3.googleusercontent.com/bKDlj30E4NitaDXdEkcnNJ7uibfnQorzLHMQM4JEJ5ILNVUTVCA1CFgJg9msTlpUylaCI8niuS2aKo7L-mcFbg90yNt8gsV8QdfGf_3NFmxzKYyngNMm3dqPkSR-wvx5QshFEcWAJFhTwtkmqNT2hwGkZ9CgdiLgtMZ9jcfS-Hll-WTlFFWy_GhbYczuz6OKPVttf_H0l5HZhQgryZnBuo5LIbd1e89kQqSWpXf5o1ZSfuUEe7YuTYnpH9Q2s_qiHxW3Uk5mnuyR1D-YBCWpsP4BMDsIFoQXSfJt7vQYITzk-2v3RowrM4SNkCBLyHn_KQSYSR7eT0vHk3gRZ1ke3i8rHl19TiMjQS6OcgpVfeSuHpYOMNOs5yTJZIMP3Vpec_HXt0jhM3-dhhEZjjWLQWdd_hhyRxmlIGXYg1cWUvrU0x0FFDVlpsBrECkqLBycY0KeftAvVUaYqJFFWL30gLFvSl38yE-bJtBDxiETXatt_tUAGCCtQRf8LqDngmT0JLyhezb9JzU0nQHWUUqcS564eGlHbteewBC-jF4GlWw2q6blPpF2ZpVFcLbx1HNlzN4ueVcJKaCQaNhVY_Ry-D7SNSfzbaJHOEfMJnwJ2ltn2N6czaoQhI4fM3THXEGoe34efrJypSUoQCXfOJfpQmRufd4wJYv1=s636-no",height: "64",width: "64", class: "user_photo image-circle"
-                    %p.user_info
-                      ななみん
-                      %span.ng-hide
-                        23歳
+        .partners.length_0
+          / これが大枠
+          .box_not_found_favorite_discription
+            / これと同階層のもう一つが『0人』の場合のコンテンツ内容
+            .user_relation
+              =image_tag "https://static-pairs.akamaized.net/public/img/pc/img_jp/common/img_abstract_user.png",class: "image-circle"
+              =image_tag "https://lh3.googleusercontent.com/67U0ehO2Q5Y2Vfz-AoMA4M12gXP4F5Gcz5iDgazlnkDnXmNH_URicFwo3aYGXc4g5lu-6If2g3UFtkbtOOO6t2A4RWKwwDcrtMMB1q5aI_AArolceJZQvsyJcXsPE0Ked0FZyIEriQ9Dw9fQmstVl-6GXUp64dn0oWWxm6c-a2YSEBCLsLdJfzKWIezavKD07xuZnSi6q7rUn0mXvZCBepHsI3Y2HUPCfzsluDjvuAD0W3FY83LWttFkOFJ0Y0cmeTFbGZ16huyww80j8XCLmLWHRyvYYWlD4vk2AfsKQPDKfN_xemZnFc2UqxufyQxtnqJzivNy7VaMp2p_Cn2tvaCNMAK5jXYtoU0fq-TJbRjKTJK_PIaxgx_Y7Sv76_6SX8F5crjoDt-BeIezQCxuV-QnQPL5fy6HykMOQeLRFOYiH4OdGRm90Izwaxyg-P6odmXR_dHDWxjMIMyWtX1pR2I5E6IU8DdByysw_F40H-G4hrNhp0UGTCOZU1mHB_mHZE1gXybeWe0v6YduKI_wwERvEuWB9r97KHHbu9tjRkGZLUx5PvyP1PpK-6NJ7BnWUDyObsGi8keViNdW2ZV13RmrMwsJNnUNTvyO2RlXCYkYJUvSCryIyrq89oW-lSVRWP7G881MNNQ9hpTgUGQHPNXSwxvLggdZ=w104-h59-no",class: "icon_relation"
+              =image_tag "https://lh3.googleusercontent.com/4T-8GQSWbFY_rvNfY00_fBalOPZtAb1ZAd5o3vgBO2DRGverf5-4S6XCoqnWoQff938DVPTJ0S4opVaAsGmXSGx05hTlhH6f7e2JID_7SJ2IN9GWwDmXGF-st0TJR01QyPbSPJXV-dRc4HN1AVIJ1yjCwoRajw4Jcd1fOVFU759dJycH-P76TzJERk9UWNaaf9gPFoRpsBfDqHx-7h1tAQMC44N4bjbdzNupudWaF2v35odG_xigdOrMVoiDZXOdiFTk8hsJ5AGoCZf9tv8lR0QTb4LXoDGnPPWJ0k_BZX9ueiYglgkMacIXb-nEbQNrlk8ppN4cYpiuvgdgZTVUsw2yEkEJO-IbRlOLTovB7IJJ4HL3T2UEwlkrJwDDMr2cDG3rq_64T_khUgzpyI9QKUNEXX3aEVQRGY1tFFkMdQCmsNCA89_Zo5qq-SSga5voUggzxzpF-lnKS6b9eielS3-ID9C9LH7A_IGh7x_Z7gciTng5_jeAbicgen2tJDLBynm1ICAtglwE5g6abEltXeqEhCELbcwuytJP2mM3URBP2kqnH2hC685aJ0c8fFCTFhP6Zawn3iHtynoohSgoL8kYx9kdmzPmSdbmcWiGEH3IXnkrSthWYWyfLnQt9kW3RYFlXQFcMu0H7G4HRqM34IY-5D4IB9nh=s78-no",height: "78", width: "78",class: "user_photo image-circle"
+            %p.discription_title ここには、あなたが「お気に入り」に追加したお相手が表示されます。
+            %p.discription_text お気に入りは、お相手のプロフィール画面から追加できます。
+          .box_not_found_callout_send
+            / これと同階層のもう一つが『0人』の場合のコンテンツ内容
+            .callout_inner
+              %p.callout_text01 気になったお相手に
+              %P.callout_text02
+                %em.f_fsize15 「いいね！」
+                を送ってみましょう。
+              %p.more.w40p
+                =link_to "気になるお相手をさがす", root_path,class: "button_d button_blue_a"
 
-            .like_thx_descriptoon
-              =image_tag "https://static-pairs.akamaized.net/public/img/pc/img_jp/like/pc_iine_from_partner.png", height: "118",width: "261"
 
-        .banner-show
-          .banner_with_close.ng-hide
-            =image_tag ""
-            =link_to
-
-        .userSetting
+        .userSetting.ng-hide
+          / ↑が大枠
           .pager-nums-top
+            / render切り出し１
             %p.display_option_number.mb0 24人中 1〜10人表示
             .box_display_option
               .box_result_pager.mb0
@@ -54,25 +51,8 @@
               %span
                 =link_to "退会者を非表示","",class: "button_withdrawal bottom button_f button_white_a"
 
-        .partners.length_0
-          .box_not_found_like_discription
-            .user_relation
-              =image_tag "https://static-pairs.akamaized.net/public/img/pc/img_jp/common/img_abstract_user.png",class: "image-circle"
-
-              =image_tag "https://static-pairs.akamaized.net/public/img/pc/img_jp/like/icon_like_not_found.png",class: "icon_relation"
-
-              =image_tag "https://static-pairs.akamaized.net/public/img/all/img_jp/avatar/my_placeholder_woman.png?v=1&impolicy=pairs82x82&imwidth=82&width=78&height=78",height: "78", width: "78",class: "user_photo image-circle"
-            %p.discription_title.mb0 ここには、あなたが「いいね！」を送ったお相手が表示されます。
-          .box_not_found_callout_send
-            .callout_inner
-              %p.callout_text01 気になったお相手に
-              %P.callout_text02
-                %em.f_fsize15 「いいね！」
-                を送ってみましょう。
-              %p.more.w40p
-                =link_to "気になるお相手をさがす","",class: "button_d button_blue_a"
-
           %ol.box_like_list
+            / render切り出し２
             .like_item
               .unread_over_ray.ng-hide
                 =image_tag "",class: "overlay_image"
@@ -193,3 +173,22 @@
                   / %span.ng-hide
                   /   =link_to "",class: "button_like button_like_closed button_gray_a button_like_view button_like_c button_e" do
                   /     %span.like ブロック中
+
+          .pager-nums-top
+            / render切り出し３
+            / 本来『pager-nums-bottom』
+            .box_display_option
+              .box_result_pager.mb0
+                =link_to "前へ","",class: "pager_pre button_c button_white_a ng-hide"
+                =link_to "","",class: "disabled prev ng-hide"
+                %ol.pager_nums
+                  %li.pager_num.is_current
+                    =link_to "1",""
+                  %li.pager_num
+                    =link_to "2",""
+
+                =link_to "次へ","",class: "pager_next button_c button_white_a"
+                =link_to "","",class: "disabled next ng-hide"
+              %span
+                =link_to "退会者を非表示","",class: "button_withdrawal bottom button_f button_white_a"
+            %p.display_option_number.mb0 24人中 1〜10人表示
