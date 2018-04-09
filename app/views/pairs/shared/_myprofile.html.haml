@@ -146,7 +146,8 @@
     .mypage_detail_inner_left
       .box_profile_detail
         %p.detail_sub_note.pb10.borderb1
-          = link_to '項目を選択すると編集できます', "/users/#{current_user.id}/details/#{current_user.id}/edit"
+          項目を選択すると編集できます
+          / = link_to '項目を選択すると編集できます', "/users/#{current_user.id}/details/#{current_user.id}/edit"
         %p.detail_sub_title
           %span.title_a
             Pairsプロフ
@@ -155,25 +156,32 @@
             %span.item_title
               身長
           - if @user.height_id.present?
-            %dd.detail_item_value#detail_item_value_residence_state
+            %dd.detail_item_value#detail_item_value_height
               = link_to "#{@user.height.height}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
           - else
-            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
+            %dd.detail_item_value.is_no_select#detail_item_value_height
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               体型
           - if @user.body_id.present?
-            %dd.detail_item_value#detail_item_value_residence_state
+            %dd.detail_item_value#detail_item_value_body_build
               = link_to "#{@user.body.body}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
           - else
-            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
+            %dd.detail_item_value.is_no_select#detail_item_value_body_build
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               血液型
-          %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-            選択してください
+          - if @user.blood_id.present?
+            %dd.detail_item_value#detail_item_value_blood_type
+              = link_to "#{@user.blood.blood_type}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+          - else
+            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               居住地
@@ -181,68 +189,89 @@
             %dd.detail_item_value#detail_item_value_residence_state
               = link_to "#{@user.residence.prefecture}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
           - else
-            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
-          %dt.detail_item_title
-            %span.item_title
-              出身地
-          %dd.detail_item_value.is_no_select#detail_item_value_home_state
-            選択してください
+            %dd.detail_item_value.is_no_select#detail_item_value_residence_state
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+          / 未実装のため、コメアウト
+          / %dt.detail_item_title
+          /   %span.item_title
+          /     出身地
+          / %dd.detail_item_value.is_no_select#detail_item_value_home_state
+          /   = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               職種
           - if @user.occupancy_id.present?
-            %dd.detail_item_value#detail_item_value_residence_state
+            %dd.detail_item_value#detail_item_value_job
               = link_to "#{@user.occupancy.occupancy}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
           - else
-            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
+            %dd.detail_item_value.is_no_select#detail_item_value_job
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               学歴
           - if @user.school_id.present?
-            %dd.detail_item_value#detail_item_value_residence_state
+            %dd.detail_item_value#detail_item_value_education
               = link_to "#{@user.school.school}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
           - else
-            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
+            %dd.detail_item_value.is_no_select#detail_item_value_education
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               年収
           - if @user.income_id.present?
-            %dd.detail_item_value#detail_item_value_residence_state
+            %dd.detail_item_value#detail_item_value_annual_income
               = link_to "#{@user.income.income}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
           - else
-            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
+            %dd.detail_item_value.is_no_select#detail_item_value_annual_income
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
+            / 本物ではこの場所では非表示
             %span.item_title
               同居人
           - if @user.living_with_id.present?
-            %dd.detail_item_value#detail_item_value_residence_state
+            %dd.detail_item_value#detail_item_value_lodger
               = link_to "#{@user.living_with.living_with}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
           - else
-            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
+            %dd.detail_item_value.is_no_select#detail_item_value_lodger
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
+            / 本物ではこの場所では非表示
             %span.item_title
               休日
-          %dd.detail_item_value.is_no_select#detail_item_value_holiday
-            選択してください
+          - if @user.holiday_id.present?
+            %dd.detail_item_value#detail_item_value_holiday
+              = link_to "#{@user.holiday.holiday}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+          - else
+            %dd.detail_item_value.is_no_select#detail_item_value_holiday
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
+            / 本物ではこの場所では非表示
             %span.item_title
               お酒
           - if @user.alcohol_id.present?
-            %dd.detail_item_value#detail_item_value_residence_state
+            %dd.detail_item_value#detail_item_value_drinking
               = link_to "#{@user.alcohol.frequency}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
           - else
-            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
-          %dt.detail_item_title.is_no_select.ng-hide
+            %dd.detail_item_value.is_no_select#detail_item_value_drinking
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+          %dt.detail_item_title
             %span.item_title
               タバコ
-          %dd.detail_item_value.is_no_select.ng-hide#detail_item_value_smoking
-            選択してください
+          - if @user.smoke_id.present?
+            %dd.detail_item_value#detail_item_value_smoking
+              = link_to "#{@user.smoke.frequency}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+          - else
+            %dd.detail_item_value.is_no_select#detail_item_value_smoking
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
         %p.detail_sub_title.pb0
           %span.title_a
             詳細プロフ
@@ -254,104 +283,138 @@
               ニックネーム
           %dd.detail_item_value#detail_item_value_nickname
             =@user.nickname
+
           %dt.detail_item_title
             %span.item_title
               年齢
-          - if @user.age_id.present?
-            %dd.detail_item_value#detail_item_value_residence_state
-              = @user.age.age
-          - else
-            %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
+          %dd.detail_item_age
+            = @user.age.age
+
           %dt.detail_item_title
             %span.item_title
               兄弟姉妹
           %dd.detail_item_value.is_no_select#detail_item_value_nth_child
-            選択してください
+            = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               国籍
           %dd.detail_item_value.is_no_select#detail_item_value_nationality
-            選択してください
+            = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               話せる言語
           %dd.detail_item_value.is_no_select#detail_item_value_lang
-            選択してください
-        %p.detail_sub_title
+            = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+        %p.detail_sub_title.ng-hide
           学歴・職種・外見
-        %dl.detail_item_list
+          / 本物では非表示状態
+        %dl.detail_item_list.ng-hide
           %dt.detail_item_title
             %span.item_title
               年収
-          %dd.detail_item_value.is_no_select#detail_item_value_annual_income2
-            選択してください
-        %p.detail_sub_title
-          恋愛・結婚について
-        %dl.detail_item_list
-          %dt.detail_item_title
-            %span.item_title
-              結婚歴
-          %dd.detail_item_value.is_no_select#detail_item_value_married_status
-            選択してください
-          %dt.detail_item_title
-            %span.item_title
-              子どもの有無
-          %dd.detail_item_value.is_no_select#detail_item_value_child
-            選択してください
-          %dt.detail_item_title
-            %span.item_title
-              結婚に対する意思
-          %dd.detail_item_value.is_no_select#detail_item_value_when_marry
-            選択してください
-          %dt.detail_item_title
-            %span.item_title
-              子どもが欲しいか
-          %dd.detail_item_value.is_no_select#detail_item_value_want_child
-            選択してください
-          %dt.detail_item_title
-            %span.item_title
-              家事・育児
-          %dd.detail_item_value.is_no_select#detail_item_value_housework
-            選択してください
-          %dt.detail_item_title
-            %span.item_title
-              出会うまでの希望
-          %dd.detail_item_value.is_no_select#detail_item_value_how_to_meet
-            選択してください
-          %dt.detail_item_title
-            %span.item_title
-              初回デート費用
-          %dd.detail_item_value.is_no_select#detail_item_value_cost_of_date
-            選択してください
+              / 本物では非表示状態
+          - if @user.income_id.present?
+            %dd.detail_item_value#detail_item_value_annual_income2
+              = link_to "#{@user.income.income}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+          - else
+            %dd.detail_item_value.is_no_select#detail_item_value_annual_income2
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+        / 未実装のため、コメアウト
+        / %p.detail_sub_title
+        /   恋愛・結婚について
+        / %dl.detail_item_list
+        /   %dt.detail_item_title
+        /     %span.item_title
+        /       結婚歴
+        /   %dd.detail_item_value.is_no_select#detail_item_value_married_status
+        /     = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+        /   %dt.detail_item_title
+        /     %span.item_title
+        /       子どもの有無
+        /   %dd.detail_item_value.is_no_select#detail_item_value_child
+        /     = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+        /   %dt.detail_item_title
+        /     %span.item_title
+        /       結婚に対する意思
+        /   %dd.detail_item_value.is_no_select#detail_item_value_when_marry
+        /     = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+        /   %dt.detail_item_title
+        /     %span.item_title
+        /       子どもが欲しいか
+        /   %dd.detail_item_value.is_no_select#detail_item_value_want_child
+        /     = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+        /   %dt.detail_item_title
+        /     %span.item_title
+        /       家事・育児
+        /   %dd.detail_item_value.is_no_select#detail_item_value_housework
+        /     = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+        /   %dt.detail_item_title
+        /     %span.item_title
+        /       出会うまでの希望
+        /   %dd.detail_item_value.is_no_select#detail_item_value_how_to_meet
+        /     = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+        /   %dt.detail_item_title
+        /     %span.item_title
+        /       初回デート費用
+        /   %dd.detail_item_value.is_no_select#detail_item_value_cost_of_date
+        /     = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
         %p.detail_sub_title
           性格・趣味・生活
         %dl.detail_item_list
-          %dt.detail_item_title
-            %span.item_title
-              性格・タイプ
-          %dd.detail_item_value.is_no_select#detail_item_value_personalities
-            選択してください
-          %dt.detail_item_title
-            %span.item_title
-              社交性
-          %dd.detail_item_value.is_no_select#detail_item_value_sociability
-            選択してください
+          / 未実装箇所をコメアウト
+          / %dt.detail_item_title
+          /   %span.item_title
+          /     性格・タイプ
+          / %dd.detail_item_value.is_no_select#detail_item_value_personalities
+          /   = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+          / %dt.detail_item_title
+          /   %span.item_title
+          /     社交性
+          / %dd.detail_item_value.is_no_select#detail_item_value_sociability
+          /   = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               同居人
-          %dd.detail_item_value.is_no_select#detail_item_value_lodger2
-            選択してください
-          %dt.detail_item_title.ng-hide
+          - if @user.living_with_id.present?
+            %dd.detail_item_value#detail_item_value_lodger2
+              = link_to "#{@user.living_with.living_with}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+          - else
+            %dd.detail_item_value.is_no_select#detail_item_value_lodger2
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+          %dt.detail_item_title
             %span.item_title
               休日
-          %dd.detail_item_value.is_no_select.ng-hide#detail_item_value_holiday2
-            選択してください
-          %dt.detail_item_title.ng-hide
+          - if @user.holiday_id.present?
+            %dd.detail_item_value#detail_item_value_holiday2
+              = link_to "#{@user.holiday.holiday}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+          - else
+            %dd.detail_item_value.is_no_select#detail_item_value_holiday2
+              選択してください
+
+          %dt.detail_item_title
             %span.item_title
               お酒
-          %dd.detail_item_value.is_no_select.ng-hide#detail_item_value_drinking2
-            選択してください
+          - if @user.alcohol_id.present?
+            %dd.detail_item_value#detail_item_value_drinking2
+              = link_to "#{@user.alcohol.frequency}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+          - else
+            %dd.detail_item_value.is_no_select#detail_item_value_drinking2
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
           %dt.detail_item_title
             %span.item_title
               タバコ
@@ -360,14 +423,17 @@
               = link_to "#{@user.smoke.frequency}", "/users/#{current_user.id}/details/#{current_user.id}/edit"
           - else
             %dd.detail_item_value.is_no_select#detail_item_value_blood_type
-              選択してください
-          %dt.detail_item_title
-            %span.item_title
-              好きなこと・趣味
-          %dd.detail_item_value.is_no_select#detail_item_value_hobbies
-            選択してください
+              = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
+          / %dt.detail_item_title
+          /   %span.item_title
+          /     好きなこと・趣味
+          / %dd.detail_item_value.is_no_select#detail_item_value_hobbies
+          /   = link_to "選択してください", "/users/#{current_user.id}/details/#{current_user.id}/edit"
+
       %a.button_a.button_white_a{href: ""}
         質問付きいいね！の設定
+
     .mypage_detail_inner_right
       .box_join_community
         .join_community_title_b
@@ -385,7 +451,6 @@
                     = community.community_name
                   %p.community_item_count
                     = t("enums.community.category.#{community.category}")
-
           - else
             %li.about_community
               コミュニティに参加して、

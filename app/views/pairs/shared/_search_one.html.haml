@@ -150,15 +150,17 @@
           %ul.user_display_photo_list
             %li.user_display_photo_item.is_current
               - if user.UserImages.find_by(status: 1).present?
-                = image_tag "#{user.UserImages.find_by(status: 1).content}", class: "list_view_user_photo image-circle"
+                = image_tag "#{user.UserImages.find_by(status: 1).content}", class: "list_view_user_photo"
+              - elsif current_user.gender == "male"
+                = image_tag "https://lh3.googleusercontent.com/6nHZo9ncRHpfOAfDBg1QEnGJTmTz80BIK06M3pkxYJFFddDktWulb9OSFTnyHM-5bbJwl5eOQPHw_zShMjLNaXTU0D-9dypWyeBonPRzljTpAPoXiT-a7A4vKJu8vJdikm4JIt6-SACVvWrU-Bl4HRkrk_bzkKv5LBcvBw7VsiG5PBASpIAF209t7MZ_MA0up_eTjEWwQ8UntsCtqjzfD8QjBlgyFZh7y8zM4ISlCbQqH5L-9ZjzxHh9zFX9_HSrSd-sF7pFV7ngzbYc5W5KHab7RBxqm_jlBsnZTvHs-MaG1RPuAtCWsAi0W6ayZjkCzViLvd_RCrRn37m4qjFtWrKU75cNs1buVzW01sB4bNm_RaSslIo1fzv-QoPd5rioAdFNeh5zDCM0AANsJANef6Rg7-AlQnUVBoe2RkSgkkBHnENm2PAU_EImbcq6fDZea1J19HQMycJx4Om7kJEm97EZLm5RK-WLg4gnQpf2HhfXtb0WtpvGMbKebiy7vxYDCgNWVZpL-4jRcsBU_55hTUfyhqi3Gwzfhh-LtueeV9GxaKvlhKFt8sF4rIEvs_NlHqTVhMpV-5G2j6KwL2yUv1zlAmNCI7o_wUWcx0nR-6OXVzp4bI_48gd6JyFD8rKU0Pk1pHrnrM8gqgWcVkhVNNVEph-jbogK=s640-no", class: "list_view_user_photo"
               - else
-                = image_tag "https://lh3.googleusercontent.com/jmxL41Xoh0hwYidEE0Mt_mO6hKBrPYVwQpNOFSDHHaFYY30WxFuqehwH6e1AGG8LNA1cnmO-Xu1r7IAKxEkxMwzAg6yiJSfWHpV16volf3DK78EXqEEs_Nc2zQJBEU0b86PRkcq_7DW8mLbaKNgj1QGVsME8Pqu-qOlpWJ3o0TZIlshWLaA2HypQgZRP1ETY8XGUr01jB7iMoasAP1xUzJyxUFl5i-miinWCzu5MgkmZuUS6KCyfy_Fdozn5xvI3J_sGRA9yJ_yg3NcM-b4mf6LOuZ_89eW7RbxVOalsUQ5Z6iMMZWagh3uNh3pW0CrldkOKUB1_3AbBVxTJZOcGolBcGit1TWxmDa6XUgzjSSipZURmQ7XkdjkYOIW9NSOJuQNkDMPskpOfnC-jELZWwfqrc1BxZB4qSXQyVQV-qeZ2L8_D6Pq0VvRCf77QkiX7S2f74bQ-BHEjCaaNX_3xhx0nk1Ihjfr09JuuxILeXsgSa--RQTupf0CHicd8SkiHQbsvw8IwvC9CEySbZLBjmsCUqXMc3jOGxbpKNy6x-ygrQ46ELi-3ml6dNCfNOVBmJdOTsZzPKpZB5W_M6AF2PyamLxfCfG2wj4KHEO1rDSHGkDZrc16-lzvzK4YNmSOwK5Ynp-BIC0JoTZ--TvZsSiFbqd_VBfA=s98-no", class: "list_view_user_photo image-circle"
+                = image_tag "https://lh3.googleusercontent.com/TfSva6g4DoAgB-0IcJRy2uGwlaV5583y4-mI64zKwt4xG4ogeLWLXMkLdGmHnupwEtASXC8uHy52KInNrkQlZWuDysLQOLcvjpDqGa-uh6Ku_wDtstE0k1EJIwOCzBOTdLMF--gZGg87OdZhuVrJfvnps6hDg4xzWdEGk2t_uIpWBKCGpJFrgWgnA0kla3SkYX_zOlgwOVEFiZpDwdY7Z3y48IU-_FEXyeh-XTesR_PDb_1Q_nxZDdsNunoEeazreKJ87-AWiO6aqycZX8zdUgxb2FvXkQLzeLozqrwbrR2auwyhQUfu8FV0ViiNwyS3FGv2vXst2RZO5aHcqEIx8yKoF53_3v-PgBrHQznad4vk-r8B846fP5bxLg4YxcMubX_-_qf2nJJEKJDqNxEuhyi4NviGVKu02Q7Cwp8e__44wiq63NcSiQ-1CvgzCge6qAh8ZMDQBkAQLQjzZGmILH05j42n5DbQFor2OAdiXnNJT_LHRkJOxDTrBLArI_N3dtmqutF0pWe3YjQ1VKK5raBzgWuP_fa-8lpjrm8F_ekbxOrHiUyK9sKTkpR0b6323ep3CVgNnLVCdV_Qcrm1yKRmGaNRpp_FEjter59oIGoNgnlo3_QgZ3beN3oU7I-H6FTYS-AhnzXH5Z1A-8DCUWnoOqW5pVQc=s640-no", class: "list_view_user_photo"
           .summary_info_inner
             .user_info_wrapper
               %p.user_info
                 %span.user_name
                   = user.nickname
-                %span.user_age 42歳
+                %span.user_age #{user.age.age}
                 %span.user_area
               %p.user_tweet
                 全角１７文字迄マイプロから入力可能
@@ -237,69 +239,82 @@
         %p.detail_sub_title
           基本情報
         %dl.detail_item_list
+          / 未実装箇所をコメアウト
           %dt.detail_item_title ニックネーム
-          %dd.detail_item_value 全角文字七字迄
+          %dd.detail_item_value #{user.nickname}
           %dt.detail_item_title 年齢
-          %dd.detail_item_value 一列で収まる
-          %dt.detail_item_title 血液型
-          %dd.detail_item_value 良い人がいればしたい
-          %dt.detail_item_title 兄弟姉妹
-          %dd.detail_item_value それ以上は改行
-          %dt.detail_item_title 国籍
-          %dd.detail_item_value 幾つかのddは
-          %dt.detail_item_title 話せる言語
-          %dd.detail_item_value もう１個階層深
+          %dd.detail_item_value #{user.age.age}
+          - if user.blood.present?
+            %dt.detail_item_title 血液型
+            %dd.detail_item_value #{user.blood.blood_type}
+          / %dt.detail_item_title 兄弟姉妹
+          / %dd.detail_item_value それ以上は改行
+          / %dt.detail_item_title 国籍
+          / %dd.detail_item_value 幾つかのddは
+          / %dt.detail_item_title 話せる言語
+          / %dd.detail_item_value もう１個階層深
           %dt.detail_item_title 居住地
-          %dd.detail_item_value 設定ボタンから
-          %dt.detail_item_title 出身地
-          %dd.detail_item_value 見たい項目数
+          %dd.detail_item_value #{user.residence.prefecture}
+          / %dt.detail_item_title 出身地
+          / %dd.detail_item_value 見たい項目数
         %p.detail_sub_title
           学歴・職種・外見
         %dl.detail_item_list
-          %dt.detail_item_title 職種
-          %dd.detail_item_value 全角文字七字迄
-          %dt.detail_item_title 学歴
-          %dd.detail_item_value 一列で収まる
-          %dt.detail_item_title 年収
-          %dd.detail_item_value 良い人がいればしたい
-          %dt.detail_item_title 身長
-          %dd.detail_item_value それ以上は改行
-          %dt.detail_item_title 体型
-          %dd.detail_item_value 幾つかのddは
-        %p.detail_sub_title
-          恋愛・結婚について
-        %dl.detail_item_list
-          %dt.detail_item_title 結婚歴
-          %dd.detail_item_value 全角文字七字迄
-          %dt.detail_item_title 子どもの有無
-          %dd.detail_item_value 一列で収まる
-          %dt.detail_item_title 結婚に対する意思
-          %dd.detail_item_value 良い人がいればしたい
-          %dt.detail_item_title 子どもが欲しいか
-          %dd.detail_item_value それ以上は改行
-          %dt.detail_item_title 家事・育児
-          %dd.detail_item_value 幾つかのddは
-          %dt.detail_item_title 出会うまでの希望
-          %dd.detail_item_value もう１個階層深
-          %dt.detail_item_title 初回デート費用
-          %dd.detail_item_value 設定ボタンから
+          - if user.occupancy.present?
+            %dt.detail_item_title 職種
+            %dd.detail_item_value #{user.occupancy.occupancy}
+          - if user.school.present?
+            %dt.detail_item_title 学歴
+            %dd.detail_item_value #{user.school.school}
+          - if user.income.present?
+            %dt.detail_item_title 年収
+            %dd.detail_item_value #{user.income.income}
+          - if user.height.present?
+            %dt.detail_item_title 身長
+            %dd.detail_item_value #{user.height.height}
+          - if user.body.present?
+            %dt.detail_item_title 体型
+            %dd.detail_item_value #{user.body.body}
+        / 未実装箇所をコメアウト
+        / %p.detail_sub_title
+        /   恋愛・結婚について
+        / %dl.detail_item_list
+        /   %dt.detail_item_title 結婚歴
+        /   %dd.detail_item_value 全角文字七字迄
+        /   %dt.detail_item_title 子どもの有無
+        /   %dd.detail_item_value 一列で収まる
+        /   %dt.detail_item_title 結婚に対する意思
+        /   %dd.detail_item_value 良い人がいればしたい
+        /   %dt.detail_item_title 子どもが欲しいか
+        /   %dd.detail_item_value それ以上は改行
+        /   %dt.detail_item_title 家事・育児
+        /   %dd.detail_item_value 幾つかのddは
+        /   %dt.detail_item_title 出会うまでの希望
+        /   %dd.detail_item_value もう１個階層深
+        /   %dt.detail_item_title 初回デート費用
+        /   %dd.detail_item_value 設定ボタンから
         .detail_sub_title
           性格・趣味・生活
         %dl.detail_item_list
-          %dt.detail_item_title 性格・タイプ
-          %dd.detail_item_value 全角文字七字迄
-          %dt.detail_item_title 社交性
-          %dd.detail_item_value 一列で収まる
-          %dt.detail_item_title 同居人
-          %dd.detail_item_value 良い人がいればしたい
-          %dt.detail_item_title 休日
-          %dd.detail_item_value それ以上は改行
-          %dt.detail_item_title お酒
-          %dd.detail_item_value 幾つかのddは
-          %dt.detail_item_title タバコ
-          %dd.detail_item_value もう１個階層深
-          %dt.detail_item_title 好きなこと・趣味
-          %dd.detail_item_value 設定ボタンから
+          / 未実装箇所をコメアウト
+          / %dt.detail_item_title 性格・タイプ
+          / %dd.detail_item_value 全角文字七字迄
+          / %dt.detail_item_title 社交性
+          / %dd.detail_item_value 一列で収まる
+          - if user.living_with.present?
+            %dt.detail_item_title 同居人
+            %dd.detail_item_value #{user.living_with.living_with}
+          - if user.holiday.present?
+            %dt.detail_item_title 休日
+            %dd.detail_item_value #{user.holiday.holiday}
+          - if user.alcohol.present?
+            %dt.detail_item_title お酒
+            %dd.detail_item_value #{user.alcohol.frequency}
+          - if user.smoke.present?
+            %dt.detail_item_title タバコ
+            %dd.detail_item_value #{user.smoke.frequency}
+          / %dt.detail_item_title 好きなこと・趣味
+          / %dd.detail_item_value 設定ボタンから
       %a.button_breach.button_a.button_white_a{href: "/violation"}
         違反報告を送る
     .personal_innger_right
