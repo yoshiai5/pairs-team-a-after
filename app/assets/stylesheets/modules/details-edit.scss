@@ -23,7 +23,7 @@
 
     }
     table {
-        width: 300px;
+        width: 340px;
         tr {
             font-weight: 400;
             th {
@@ -82,6 +82,7 @@
     }
     #user_smoke_id {
         @include allow_icon;
+        width: 220px;
     }
     #user_occupancy_id {
         @include allow_icon;
@@ -96,6 +97,9 @@
         @include allow_icon;
     }
     #user_living_with_id {
+        @include allow_icon;
+    }
+    #user_blood_id {
         @include allow_icon;
     }
 
