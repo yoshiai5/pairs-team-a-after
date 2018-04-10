@@ -29,10 +29,7 @@
                     %tr
                       %th コミュニティの写真
                       %td
-                        - if Rails.env.production?
-                          = image_tag @community.image.cache_name
-                        - else
-                          = image_tag @community.image.url
+                        = image_tag @community.image_url
                         = hidden_field_tag :"cache[image]",@community.image.cache_name # <=データ保持 %>
                 .common_button_area.layout_horizontal
                   %ul
