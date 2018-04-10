@@ -97,7 +97,10 @@ class CommunitiesController < ApplicationController
   private
 
   def community_params
-    params.require(:community).permit(:community_name, :category, :image, user_ids: [] )
+    params.require(:community).permit(:community_name, :category, :image, :image_cache, user_ids: [] )
+
+
+    # params.require(:community).permit(:community_name, :category, :image, user_ids: [] )
     # params.require(:community).permit(:community_name, :category, :image).merge(user_id: current_user.id)
   end
 
