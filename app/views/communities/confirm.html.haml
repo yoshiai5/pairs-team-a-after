@@ -29,9 +29,7 @@
                     %tr
                       %th コミュニティの写真
                       %td
-                        = image_tag @community.image.cache!
                         = image_tag @community.image.url
-
                         = hidden_field_tag :"cache[image]",@community.image.cache_name # <=データ保持 %>
                 .common_button_area.layout_horizontal
                   %ul
