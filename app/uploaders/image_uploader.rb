@@ -36,8 +36,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def public_id
-    # return model.id
-    return community.id
+    return model.id
   end
 
   # team-aで使用していた『image_uploader』内容のみ
