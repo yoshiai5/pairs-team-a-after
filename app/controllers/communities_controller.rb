@@ -46,7 +46,6 @@ class CommunitiesController < ApplicationController
 
   def confirm
     @community = Community.new(community_params)
-    @community.save
     @tempfile = params[:community][:image].tempfile
     render :new if @community.invalid?
   end
