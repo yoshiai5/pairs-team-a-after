@@ -1,4 +1,6 @@
 class Community < ApplicationRecord
+require 'carrierwave/orm/activerecord'
+
   has_many :users, through: :members, dependent: :destroy
   has_many :members
 
