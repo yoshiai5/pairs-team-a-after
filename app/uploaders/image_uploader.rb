@@ -1,6 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   if Rails.env.production?
+  # if Rails.env.development?
     include Cloudinary::CarrierWave
   else
     storage :file
@@ -21,6 +22,19 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Cloudinaryから画像を参照
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  # public配下に作成されるcacheの場所を変更（ローカル環境）
+  def cache_dir
+    if Rails.env.production?
+    # if Rails.env.development?
+      "#{Rails.root}/tmp/uploads"
+    else
+      "cache"
+    end
+    # "cache"
+  #   "tmp/uploads"
+  #   # "#{Rails.root}/tmp/uploads" ：NG
   end
 
   def extension_whitelist
