@@ -23,6 +23,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  # public配下に作成されるcacheの場所を変更（ローカル環境）
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
+
   def extension_whitelist
     %w(jpg jpeg gif png)
   end

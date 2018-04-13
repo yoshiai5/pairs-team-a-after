@@ -1,10 +1,4 @@
-require 'carrierwave/storage/abstract'
-require 'carrierwave/storage/file'
-
-## CarrierWaveの設定
 CarrierWave.configure do |config|
-
-  # public配下に作成されるcacheの場所を変更
-  config.cache_dir = "#{Rails.root}/tmp/uploads"
-
+  config.root = Rails.root.join('tmp') # adding these...
+  config.cache_dir = 'carrierwave' # ...two lines
 end
