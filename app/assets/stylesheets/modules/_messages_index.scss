@@ -32,15 +32,15 @@
     .box_matching_list{
       line-height: 1.0;
       background-color: #fff;
-      .is_current{
-        color: #fff;
-        background-color: #00c4cc;
-      }
       .matching_item{
         @include clearfix();
         position: relative;
         border-bottom: 1px solid #cbced0;
         background-color: #fff;
+        &.is_current{
+          color: #fff;
+          background-color: #00c4cc;
+        }
       }
       li{
         list-style: none;
