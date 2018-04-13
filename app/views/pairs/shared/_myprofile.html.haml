@@ -1,6 +1,8 @@
 .box_mypage_header
-  %a.button_profile_conf.button_b.button_white_a
-    プロフィールの見え方を確認
+  -# 自分の見え方を確認するために、渡し方をメイン画面と変更。
+  -# クリック元以外に、表示先でも『data-id』を渡す。
+  = link_to "プロフィールの見え方を確認", "", class: "button_profile_conf button_b button_white_a showPersonalViewModal","data-id": "#{current_user.id}"
+
   %a.button_notification.button_b.button_white_a.is_new
     .badge_count.uncheck
       1
@@ -76,20 +78,29 @@
         .box_my_photo
           .box_my_photo_inner
             %ul.my_photo_list
-              %li.photo_item.is_current
-                .image-round
-                  %img{src: "https://lh3.googleusercontent.com/4aEtRn5Cstlgj6Qz5pVhEc4TiTyeqcXHT3uXwjSNAx5NtSEcbDIFOJacNS_gYvJHIPrikzcmWD2_kWFNB9KknvNaAPS7O0-xeTPKo8i_wN-peEzEfFkkRuxPgvHzpflit91MAjzEJWx6PMw0T2DM5B9FkvtAGEO2q8vUOdw1RF1-aWfV8MHDdEz-O5z079jf6QziotbcOGp3gcZZVzOo67eXfW3Lp9Z044n6WcX8E7zuSfvjsadupvQ88W5Qf69rSvApwlSxXRlhexzUXjd_Meiuhp4-U0m36tWosz5UUGDBrgBjPhstvvQVb3QDErV92zZEDqvpeckyBzLDE17vIFDBMlNyrkRiexoVxmqBEeerXQE3JPtqPR8lHdylGWE_J7J2gBwxGejKWbGB3VfumWVuDZlM29n7uQO_oPu8w9_5ml24Y_q6uuUVe18hFci1aXuF6fLzmC9IEAladjBZUsThKQlg-MgVPlovIlITXkA1nOyWt5pFk4_yGjA4zGlopCxdgLLg1iupAvr-m_LOMRFSKXkuqXZpUfjpS6QOv24uxQbk5c8osxbKVxHV25-SY8CjLjW12xC88p2c4rPnXy3buEnG6OpFVCqWhLgyoOGqYfrRafGyGu66lgogbsLZvUO7CNiSEcYRZSE17CiHvds3aEe6-evs=w455-h682-no"}/
-                  %a.link_photo_edit
-                    メイン写真
-              %li.photo_item
-                .image-round
-                  %img{src: "https://lh3.googleusercontent.com/LSCjFCokRc2Sevo4VB1GTYFmNCKeECol1bLCI1HSMFSamrerYaHnJJSQN0JRp7pdj7Q-CbwthwkSa5W1H3yAOFCZLBDEcBbm6QZgZ833H2NiuHt_TtwbUoRLNHBYo3w0hOjMDBrEcMLC2MEDD3BTm3Cg3AVbJL82ocoKOCXQ52cesKytHBDH6TF8R00dxs3k8FBfH8TDChp5N7idKDB9nhINp0x9XqeE8oW4-hlsE8GmlwOzijiooGUTzHOkdvUB2AC3A1CsXMVjUTGcl16izLLf08yy5ZeVPgE09mjndYvLuxf8incFxpQfl_DHApdey3ON6Z_tJF5RSUf7LOgSypkPb3dgZHLV7MwEnFoHoDi2x6mAmhLMvveuEF4aKN8v_T8LR6QMn4Tgwr5uzDgOpei26duuexTFACkOB4iKXWlOuYMIBk2KZwmfwVD3-aAHJbvk5kcpIb83nQM3MFFEc-6Iw7kfRpeW5zUtORJt6-wp63R6jvy7zIJuk9JsFIXlD7pDuGT65UXl2qLAM9zFzR3-4okPVBw-Hwo2f_MZS9d0FIunzepgiB2kGQ3aUVe7kCoa3t3GITZBQgjuloRA-Pvp_1lrXzRKx2vXf5hDUQXNngNFVnoj7JgRXV12fDZxgpp7FnaI39Nk33VLQMb9Ft9KXJdwXbg=s220-no"}/
+              - if @user.UserImages.find_by(status: 1).present?
+                %li.photo_item.is_current
+                  .image-round
+                    = image_tag "#{@user.UserImages.find_by(status: 1).content}"
+                    %a.link_photo_edit
+                      メイン写真
+              - else
+                %li.photo_item
+                  %img{src: "https://lh3.googleusercontent.com/9DoSwu9g5XcAaMo4vvDheiVvSknckn-0bRU7ThR6RGBmpfXaTMgX5j7ahYNEjjSiHYQYtJtuj2306xFg5m8B1dgUseLZJ1VXsGej3r3OylgBLyAGGUXK5c_3BrIoJ2mqWgr6-xzVXRQwTv6VraLpho9BUmEPcwAKKclW0DXK6QJjgmxnQzh74qq5y1XkbuEDEEq7uV15qn9x2iKb3bqOKkm4KoY1B8DUqt2hZOBaQclVVc6yvsqoDWoLI7hwGzznxe7RR66QSdKNHpePieQyq5-RHqC6JG1OT6vuiuzIiSjh1BcLcj5QiZEQqYk8BAl6Wo7ymRq8kPX7zvUsJHMqMnYs02BVllYY-RHw63d8j8nFcUMWXJLkvy_eXW3VSLkPDRna8uYZSnLuNcDMTqmsXc9LvG-rw-8777k72H5TxyUgJyIQr5kIM-TjJJWnbjDP6avYM4gvuPWFG4y-1yOxFpjeUgWBSw4dDMZeax2jSX9lWMFtRdP0-J7W4rXRN6B0rc3RkPvBovLB1DWkFW7eZLbVF0x3P7uaX-fVyECsqQqtlN4nsstJdCMnoGvwnyaaM3jah9124o_DdQeU1flONiLGuv8BI1NoN8l1E0n5coPIOkq172Sc9dulP7Ljm0hijquVDEvA7uqCWowG1fBsOLvjIciUudE=s98-no"}/
                   %a.link_photo_edit
                     審査中
               %li.photo_item
-                %img.image-round{src: "https://lh3.googleusercontent.com/9DoSwu9g5XcAaMo4vvDheiVvSknckn-0bRU7ThR6RGBmpfXaTMgX5j7ahYNEjjSiHYQYtJtuj2306xFg5m8B1dgUseLZJ1VXsGej3r3OylgBLyAGGUXK5c_3BrIoJ2mqWgr6-xzVXRQwTv6VraLpho9BUmEPcwAKKclW0DXK6QJjgmxnQzh74qq5y1XkbuEDEEq7uV15qn9x2iKb3bqOKkm4KoY1B8DUqt2hZOBaQclVVc6yvsqoDWoLI7hwGzznxe7RR66QSdKNHpePieQyq5-RHqC6JG1OT6vuiuzIiSjh1BcLcj5QiZEQqYk8BAl6Wo7ymRq8kPX7zvUsJHMqMnYs02BVllYY-RHw63d8j8nFcUMWXJLkvy_eXW3VSLkPDRna8uYZSnLuNcDMTqmsXc9LvG-rw-8777k72H5TxyUgJyIQr5kIM-TjJJWnbjDP6avYM4gvuPWFG4y-1yOxFpjeUgWBSw4dDMZeax2jSX9lWMFtRdP0-J7W4rXRN6B0rc3RkPvBovLB1DWkFW7eZLbVF0x3P7uaX-fVyECsqQqtlN4nsstJdCMnoGvwnyaaM3jah9124o_DdQeU1flONiLGuv8BI1NoN8l1E0n5coPIOkq172Sc9dulP7Ljm0hijquVDEvA7uqCWowG1fBsOLvjIciUudE=s98-no"}/
+                %img{src: "https://lh3.googleusercontent.com/9DoSwu9g5XcAaMo4vvDheiVvSknckn-0bRU7ThR6RGBmpfXaTMgX5j7ahYNEjjSiHYQYtJtuj2306xFg5m8B1dgUseLZJ1VXsGej3r3OylgBLyAGGUXK5c_3BrIoJ2mqWgr6-xzVXRQwTv6VraLpho9BUmEPcwAKKclW0DXK6QJjgmxnQzh74qq5y1XkbuEDEEq7uV15qn9x2iKb3bqOKkm4KoY1B8DUqt2hZOBaQclVVc6yvsqoDWoLI7hwGzznxe7RR66QSdKNHpePieQyq5-RHqC6JG1OT6vuiuzIiSjh1BcLcj5QiZEQqYk8BAl6Wo7ymRq8kPX7zvUsJHMqMnYs02BVllYY-RHw63d8j8nFcUMWXJLkvy_eXW3VSLkPDRna8uYZSnLuNcDMTqmsXc9LvG-rw-8777k72H5TxyUgJyIQr5kIM-TjJJWnbjDP6avYM4gvuPWFG4y-1yOxFpjeUgWBSw4dDMZeax2jSX9lWMFtRdP0-J7W4rXRN6B0rc3RkPvBovLB1DWkFW7eZLbVF0x3P7uaX-fVyECsqQqtlN4nsstJdCMnoGvwnyaaM3jah9124o_DdQeU1flONiLGuv8BI1NoN8l1E0n5coPIOkq172Sc9dulP7Ljm0hijquVDEvA7uqCWowG1fBsOLvjIciUudE=s98-no"}/
+                %a.link_photo_edit
+                  審査中
               %li.photo_item
-                %img.image-round{src: "https://lh3.googleusercontent.com/9DoSwu9g5XcAaMo4vvDheiVvSknckn-0bRU7ThR6RGBmpfXaTMgX5j7ahYNEjjSiHYQYtJtuj2306xFg5m8B1dgUseLZJ1VXsGej3r3OylgBLyAGGUXK5c_3BrIoJ2mqWgr6-xzVXRQwTv6VraLpho9BUmEPcwAKKclW0DXK6QJjgmxnQzh74qq5y1XkbuEDEEq7uV15qn9x2iKb3bqOKkm4KoY1B8DUqt2hZOBaQclVVc6yvsqoDWoLI7hwGzznxe7RR66QSdKNHpePieQyq5-RHqC6JG1OT6vuiuzIiSjh1BcLcj5QiZEQqYk8BAl6Wo7ymRq8kPX7zvUsJHMqMnYs02BVllYY-RHw63d8j8nFcUMWXJLkvy_eXW3VSLkPDRna8uYZSnLuNcDMTqmsXc9LvG-rw-8777k72H5TxyUgJyIQr5kIM-TjJJWnbjDP6avYM4gvuPWFG4y-1yOxFpjeUgWBSw4dDMZeax2jSX9lWMFtRdP0-J7W4rXRN6B0rc3RkPvBovLB1DWkFW7eZLbVF0x3P7uaX-fVyECsqQqtlN4nsstJdCMnoGvwnyaaM3jah9124o_DdQeU1flONiLGuv8BI1NoN8l1E0n5coPIOkq172Sc9dulP7Ljm0hijquVDEvA7uqCWowG1fBsOLvjIciUudE=s98-no"}/
+                %img{src: "https://lh3.googleusercontent.com/9DoSwu9g5XcAaMo4vvDheiVvSknckn-0bRU7ThR6RGBmpfXaTMgX5j7ahYNEjjSiHYQYtJtuj2306xFg5m8B1dgUseLZJ1VXsGej3r3OylgBLyAGGUXK5c_3BrIoJ2mqWgr6-xzVXRQwTv6VraLpho9BUmEPcwAKKclW0DXK6QJjgmxnQzh74qq5y1XkbuEDEEq7uV15qn9x2iKb3bqOKkm4KoY1B8DUqt2hZOBaQclVVc6yvsqoDWoLI7hwGzznxe7RR66QSdKNHpePieQyq5-RHqC6JG1OT6vuiuzIiSjh1BcLcj5QiZEQqYk8BAl6Wo7ymRq8kPX7zvUsJHMqMnYs02BVllYY-RHw63d8j8nFcUMWXJLkvy_eXW3VSLkPDRna8uYZSnLuNcDMTqmsXc9LvG-rw-8777k72H5TxyUgJyIQr5kIM-TjJJWnbjDP6avYM4gvuPWFG4y-1yOxFpjeUgWBSw4dDMZeax2jSX9lWMFtRdP0-J7W4rXRN6B0rc3RkPvBovLB1DWkFW7eZLbVF0x3P7uaX-fVyECsqQqtlN4nsstJdCMnoGvwnyaaM3jah9124o_DdQeU1flONiLGuv8BI1NoN8l1E0n5coPIOkq172Sc9dulP7Ljm0hijquVDEvA7uqCWowG1fBsOLvjIciUudE=s98-no"}/
+                %a.link_photo_edit
+                  審査中
+              %li.photo_item
+                %img{src: "https://lh3.googleusercontent.com/9DoSwu9g5XcAaMo4vvDheiVvSknckn-0bRU7ThR6RGBmpfXaTMgX5j7ahYNEjjSiHYQYtJtuj2306xFg5m8B1dgUseLZJ1VXsGej3r3OylgBLyAGGUXK5c_3BrIoJ2mqWgr6-xzVXRQwTv6VraLpho9BUmEPcwAKKclW0DXK6QJjgmxnQzh74qq5y1XkbuEDEEq7uV15qn9x2iKb3bqOKkm4KoY1B8DUqt2hZOBaQclVVc6yvsqoDWoLI7hwGzznxe7RR66QSdKNHpePieQyq5-RHqC6JG1OT6vuiuzIiSjh1BcLcj5QiZEQqYk8BAl6Wo7ymRq8kPX7zvUsJHMqMnYs02BVllYY-RHw63d8j8nFcUMWXJLkvy_eXW3VSLkPDRna8uYZSnLuNcDMTqmsXc9LvG-rw-8777k72H5TxyUgJyIQr5kIM-TjJJWnbjDP6avYM4gvuPWFG4y-1yOxFpjeUgWBSw4dDMZeax2jSX9lWMFtRdP0-J7W4rXRN6B0rc3RkPvBovLB1DWkFW7eZLbVF0x3P7uaX-fVyECsqQqtlN4nsstJdCMnoGvwnyaaM3jah9124o_DdQeU1flONiLGuv8BI1NoN8l1E0n5coPIOkq172Sc9dulP7Ljm0hijquVDEvA7uqCWowG1fBsOLvjIciUudE=s98-no"}/
+                %a.link_photo_edit
+                  審査中
         .box_my_photo_pager
           %a.pager_pre.button_c.button_white_a
             前の4枚
@@ -497,3 +508,11 @@
         .common_button_area.mt20
           .button_item.w50p
             = link_to "コミュニティを作成する", community_create_path, class:"button_a button_blue_a"
+
+-# 自分の見え方を確認するために、渡し方をメイン画面と変更。
+-# 表示先以外に、クリック元でも『data-id』を渡す。
+-# 『data-id』：current_user.id、『locals』：current_user
+.showProfile{"data-id": "#{current_user.id}"}
+  %a.modal_close
+    %img{src: "https://lh3.googleusercontent.com/3ULN1jNBwRKL0vMWlpa7xXKDhKzbbkofEMFaU7AgGSDrmINTZ5hJgMUOCi43TnGM20_IVSa3Kkt4MDo6ZJkPxx_EoUGBr_BBO-v4G9EL5oIsUYVwDrLRwVQrm7THLhANPn1eutAH1UCWQCCkLtgPcvYQvRgN2CpJVhRa9pFTMjxee0oQFboX2pHoxQ9m9iK1mSxyONKQN558XN9O82poY3eZzH49cGWnNXM5ApzQ43Vn1mrLS3Hg1syJMmu7jS8pMVCPSJEd5npc_nQedhmtZSpICW7taQSBMXyptNl6eA9HB_wRwaR5jR6Y5y1q0BYU1lk1iKSnecj5mNWoJ0ckdHOx-DqN8XvUm7R5_cwRToYMnFQLEh27VfRa6K5IKbwj2uBKjTwOLux7KP8e2Ihn_vxVNB8oxht-WWZ8xbDk1NhLPLisFoGcTHU-AF4U7fdIvG_gbRczuhJ7ADvK0Ey5UoVRwrYrie7LiOMyKm217lblY_ElWyM9wx_-napFk4P0F-SkxJRAbA0c5mI65Qe1UJ4FWjGyPgJd1enGwwtPmykzyxuntfAwPSkrojsUaDUfxE7FQnyPabaf2EME0ooqZMFJxIoVh8g5HHBHPPFVsmPjEnpfPpg-k_a6rGC-M2zOxDpgV1uDZHAbe6Vd5leTwrO9aWfzvbrl=s53-no"}/
+  = render partial: "pairs/shared/search_one", locals: { user: current_user }
