@@ -15,8 +15,15 @@
           = match_user.age.age
         %span{limit_length: "8"}
           = match_user.residence.prefecture
-      .user_info02
-        %p.message
-          - if (match_user.messages.present?)
-            = match_user.messages.last.content
-      .login_time 2/31 26:59
+      - if (match_user.messages.where(group_id: group.group_id).present?)
+        .user_info02
+          %p.message
+            = match_user.messages.where(group_id: group.group_id).last.content
+            / = match_user.messages.last.content
+        %p.login_time
+          =format_posted_time(match_user.messages.where(group_id: group.group_id).last.created_at)
+          / =format_posted_time(match_user.messages.last.created_at)
+      - else
+        .user_info02
+          %p.message
+            メッセージのやりとりがありません。
