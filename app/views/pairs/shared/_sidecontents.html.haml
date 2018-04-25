@@ -91,10 +91,13 @@
         %ul
           %li.gnavi_item
             =link_to "有料会員とは？",membership_aboutpaid_path ,class: "sidemenu_link"
-          %li.gnavi_item
-            =link_to "プレミアムオプション",membership_aboutpremium_path ,class: "sidemenu_link"
-          %li.gnavi_item
-            =link_to "レディースオプション",membership_aboutladys_path ,class: "sidemenu_link"
+          - if current_user.gender == "male"
+            %li.gnavi_item
+              =link_to "プレミアムオプション",membership_aboutpremium_path ,class: "sidemenu_link"
+          - else
+            %li.gnavi_item
+              =link_to "レディースオプション",membership_aboutladys_path ,class: "sidemenu_link"
+
           %li.gnavi_item
             =link_to "Pairsポイント",membership_aboutpoint_path ,class: "sidemenu_link"
 

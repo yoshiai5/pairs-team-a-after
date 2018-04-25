@@ -94,8 +94,7 @@
 .modal_close {
   position: absolute;
   top: -26px;
-  // right: -26px;：位置調整のために下記に変更
-  right: 2px;
+  right: -26px;
   cursor: pointer;
   img{
     height: 53px;
@@ -300,6 +299,7 @@
                 font-size: 16px;
                 line-height: 100%;
                 margin: 4px 0;
+                background-color: transparent;
               }
             }
           }
@@ -531,6 +531,7 @@
   }
   .image-circle {
     width: 80px;
+    height: 80px;
   }
 }
 .image-circle {

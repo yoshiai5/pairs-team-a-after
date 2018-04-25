@@ -2,11 +2,19 @@
   .data-membership-private-mode-index
     .main.box_member_view.contents_padding
       .div
-        .private_mode_paid_header_male_view
-          .private_mode_plan
-            %a.anchor_link.button_private_mode
-              プライベートモードに申し込む
-        %img{src: "https://lh3.googleusercontent.com/fPQLkH2aYceo5t1OffsYY9WhNwHN8d3D2Lyuhu9yv3RNQLvuSkWhK-QGpxHO4louh_H649n0fbf8_4D05WQS-oFQrhbpkqxAzBUcaHO5ajFkmc4uh6oGgVEcHXPn3oGOKMygV9jpNO1aC_hrEKyhGtGn1umGu_QO0iiemDefHB7AmsAIXbNwM5RqDDdmrxZCSd7OfA_DwucmDqweOhm9-z-J1wUYtoK83UAk4RRbS_sW0Wa4p0i0dMmjgMuknkT1fuG7kaOLTVfpDn-JQ1281OUJgCeXjcVdRsZhZCYNGvMNND8YD4AqsRiObOREmX2ijq8wJ2mx8FXvu7P5t4J5ZdHbvksqDc9GujKysLnY-fGfXTyjbCkx3VNdQPjMx8CUZUS-Oa4kMhXGo3hAFKE5ohio-e197WyeAUafYej7KlzVBBV1n3oTpOWKLiI-aTSngX7N6vP-uaF6d59URU6tMwF2foEHn3qQGN84WmSwNcfuI-0bWWVXQfUdxoxvFd6OT5n8Zhd0OZQL5Tb78BtSS_8CwG7_JYtITfEjVRIOI77feA6yH0gIixKuIOgMS4BJ4B1DLK71YA-sieerK4oel30yy4f2K0MRXyAPh4l3N3XeHtNzpQHYaFmACwXEAkXOjI_uktTTZAseEWndCMYLu7JLt3j_iAg5=w417-h265-no", height: "475px", width: "721px"}
+        - if current_user.gender == "male"
+          .private_mode_paid_header_male_view
+            .private_mode_plan
+              = link_to "プライベートモードに申し込む", "/membership/aboutprivate#select_plan", class: "anchor_link button_private_mode"
+        - else
+          .private_mode_paid_header_female_view
+            .private_mode_plan
+              = link_to "プライベートモードに申し込む", "/membership/aboutprivate#select_plan", class: "anchor_link button_private_mode"
+
+        - if current_user.gender == "male"
+          %img{src: "https://lh3.googleusercontent.com/fPQLkH2aYceo5t1OffsYY9WhNwHN8d3D2Lyuhu9yv3RNQLvuSkWhK-QGpxHO4louh_H649n0fbf8_4D05WQS-oFQrhbpkqxAzBUcaHO5ajFkmc4uh6oGgVEcHXPn3oGOKMygV9jpNO1aC_hrEKyhGtGn1umGu_QO0iiemDefHB7AmsAIXbNwM5RqDDdmrxZCSd7OfA_DwucmDqweOhm9-z-J1wUYtoK83UAk4RRbS_sW0Wa4p0i0dMmjgMuknkT1fuG7kaOLTVfpDn-JQ1281OUJgCeXjcVdRsZhZCYNGvMNND8YD4AqsRiObOREmX2ijq8wJ2mx8FXvu7P5t4J5ZdHbvksqDc9GujKysLnY-fGfXTyjbCkx3VNdQPjMx8CUZUS-Oa4kMhXGo3hAFKE5ohio-e197WyeAUafYej7KlzVBBV1n3oTpOWKLiI-aTSngX7N6vP-uaF6d59URU6tMwF2foEHn3qQGN84WmSwNcfuI-0bWWVXQfUdxoxvFd6OT5n8Zhd0OZQL5Tb78BtSS_8CwG7_JYtITfEjVRIOI77feA6yH0gIixKuIOgMS4BJ4B1DLK71YA-sieerK4oel30yy4f2K0MRXyAPh4l3N3XeHtNzpQHYaFmACwXEAkXOjI_uktTTZAseEWndCMYLu7JLt3j_iAg5=w417-h265-no", height: "475px", width: "721px"}
+        - else
+          %img{src: "https://lh3.googleusercontent.com/0fozhWv7CmPgEbGdA0LMXxxgALbDq884BiUO6xdJO6K_8uJf4YrJYh6tc292ptbqc6Bz5Gwj_JXhvwbfF_G3ECX6usD7ZKTmZkM7cFCqSL5p2hsXTGxdeWT6hwbqYxIotngNC05k6wqxNKpODPELFzvLeVSYMNfTzY1TWR_oIwrssp6neiQvRuyxbJ2lAWSDcKtUSnsW6UDRcQFSRxS3oX6p6-TrYCpBWzs0yTnaiPDkr3zyrXQvTHUF9XB1AnubXqaSp7mZGKnBH_VhEpYFW8f86VyJtZE1Vew3MmrogHIf0IyYOX-RUzRbi5je5ZqX4hSu2wuIibZb4JSyznuEECmn5z-krjvV7X-458Eubr2Csj9uvpHl88j6Do2QmM0ig3XfluUohEMjusZh9z0E5BUb8FL1dVdzqcTLyceHKTPCzK1nPTiMC8uUJ4NR_MDqSeTDWOBEfN_Z9PNULGFyDLTatWsRKnvwYhAN5EQukDHYRBbPZZ6wtZxSrdIdp9H87g_PCyu8Z4mrt6bMuuCy4v2eolXoy2RNI3F43x6S_Iyc-KzO2eXZ9WaHZFEETDx_wtzCqBnZRFnKG1nENM4oLSXG77nhIdMmSlBx0e2uBrUlzfIzzwueDAv0xJ2IIKKzViLSFlvId2noPTlVaPPFxgBu7X0rBmg-=w1043-h669-no", height: "475px", width: "721px"}
         %img{src: "https://lh3.googleusercontent.com/DGQRWO2ZWy9GtUCUyoyK2kcUsf1tlPb2MkwcgRx42qHvkmS9oes96Grzyc7Rm6C1VhrkC50RIh9HnxcEVVPb_muXinA-CcdPkpZBzDDCmRnfOiQaJ55o3ytB4u5x_f7plJI66FZMJsmvMWTLUaAiPsOfDzceY8P7l21813km-oCZqoVyAgoapNPoTHdEbSHoJqXaPF-6IeVkT9ufNtRyiC5HZXCHFdilq8pL-wawM2AB8oeKKLgGVNVu5Bl6VcY-OkbYMHS7eTXriHHMv8hjVx-rbASmlfa9T7vjrzO_iXG_BsFepu8Ax2izWcmPSsRtA_qx4rDGmhO_fXxr4Ki_ZHZNEub_qjYFUrRqAEA9p5EXGyXMu7ZNhYLOGHHp0k0sHgWegcYLLvzk2P4C9iu4VwIWmBCf384pjCr72Q455--pRQyKSqNdJ2dtiPHbAs-0eDXv2jZC781cP39wPh_nDaBtGEEgGjIkpwR28dK421YAC0lZDzmu25Mkxqr4M0IwUqVLjbRJ_bx343XQ707N6HWSmQDGXLo9eAZ6GYxNsk4T3GhoRny6Ac_lgIdwkQQY2GitqEgZCvNmNCbPdi2zITXw3HTZ0Mb51w9lNiyC-aPup8LT-uhuq0lo9kVHUDlmkmHDSpvJP6rjSjJH1LIKVdEfQLVj67O7=w281-h445-no", height: "1143px", width: "721px"}
         %img{src: "https://lh3.googleusercontent.com/KbYXUsRMVKykQEo478lt6kjLXDi8mwEprO-U_tabVqAIxxhk1Uq1s98DHFe_fezbCgA35rmDYReEfMXwgv6QrGchrwJc-GhmOSruCo6C16Fv8Ob0tJclSUMp5UCN4XLeJ-M1Z_Q_vmwqIoJQ4w5p9BCP4NFzV4JW2EUDfpXAvH0eEKpuz9IGWldwNVtyNqoDF4nJkcbziqLyL-ZjjnQb5xITrIuR_xrYyjxzWWw9GxzeUCn-kPa70RJRO9_FS9Lj_L2LBRB93_3UBcJX5afOVmcANFHyzlLmL8r3ehwIMB1A30bJWMzt-ZQqJIGunsgPpI-XBovtciMAe_1OuFjFvo89raFaTOVWDmpft5585f7_GM01xCs8t2JAIhl1OBvGrOY2Q1PxRF4jhLa7OXaqhQgz2RhZb6LrCDWm00Zbm3JqLXn-va-UJ7dcNe5-vS6nvQjnRF24OzU_XEQ06jfNtuh6Vlxp226kJZevhBbdY17xu_abfmaRQP1yiUBm0RHlkFZZrPeyMqckSiyQBkJriEVnWyOzY6M5d3L7zbDBjnGiGg-7xIUojCWk2x5g0njWziaDGfQn622b1npsbaV3SdPz2aFWQewQoOuatHOwOsVo-QAFch56d0MvqFl66qAao9egF0PTDVfIR5M9WR9zx__IwDGrJhmF=w892-h445-no", height: "360px", width: "721px"}
         #select_plan.box_pay_plan

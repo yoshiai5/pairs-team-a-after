@@ -1,4 +1,4 @@
-%p.hr_date 3/5(月)
+%p.hr_date #{format_posted_timeMDW(message.created_at)}
 .their_message
   =link_to "" do
     - if UserImage.find_by(user_id: message.user_id, status:1).present?
@@ -11,4 +11,4 @@
     %p.message_text
       = message.content
     %p.message_send_time
-      = message.created_at
+      = format_posted_time(message.created_at)

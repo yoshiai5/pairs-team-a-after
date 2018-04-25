@@ -37,7 +37,10 @@
             さらに！マッチング率が2.4倍にUPするプレミアムオプションをご用意しています。
           .common_button_area.mb10
             %p.button_item.w40p
-              =link_to "プレミアムオプションについて", "/membership/aboutpremium", class:"mt10 button_a button_blue_a"
+              - if current_user.gender == "male"
+                =link_to "プレミアムオプションについて", "/membership/aboutpremium", class:"mt10 button_a button_blue_a"
+              - else
+                =link_to "レディースオプションについて", "/membership/aboutladys", class:"mt10 button_a button_blue_a"
           %p.common_text.mb0
             もっと安心してお相手探しをしたいあなたへ
           .common_button_area.mb10
