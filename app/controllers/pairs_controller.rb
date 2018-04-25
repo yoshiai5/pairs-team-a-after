@@ -33,6 +33,12 @@ class PairsController < ApplicationController
 
   def visitor_list
     @foot = current_user.comings.order("updated_at DESC").page(params[:page]).per(10)
+
+    if current_user.gender == "male"
+      @users = User.where(gender: 2).page(params[:page]).per(1)
+    else
+      @users = User.where(gender: 1).page(params[:page]).per(1)
+    end
   end
 
   def visitor_setting
