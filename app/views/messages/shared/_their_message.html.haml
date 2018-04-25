@@ -11,4 +11,4 @@
     %p.message_text
       = message.content
     %p.message_send_time
-      = message.created_at
+      = format_posted_time(message.created_at)

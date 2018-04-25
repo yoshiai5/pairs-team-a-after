@@ -1,5 +1,5 @@
-%li{class: "matching_item is_current","data-id": group.after_user_id}
-  = link_to group_messages_path(group.group_id) do
+%li{class: "matching_item","data-id": group.after_user_id}
+  = link_to group_messages_path(group.group_id, user_id: match_user.id) do
     - if match_user.UserImages.find_by(status: 1).present?
       = image_tag "#{match_user.UserImages.find_by(status: 1).content}", class: "user_photo image-circle"
     - elsif current_user.gender == "male"
@@ -15,8 +15,19 @@
           = match_user.age.age
         %span{limit_length: "8"}
           = match_user.residence.prefecture
-      .user_info02
-        %p.message
-          - if (match_user.messages.present?)
-            = match_user.messages.last.content
-      .login_time 2/31 26:59
+      - if (Group.find_by(id: group.group_id).messages.present?)
+        / - if (match_user.messages.where(group_id: group.group_id).present?)
+        .user_info02
+          %p.message
+            = Group.find_by(id: group.group_id).messages.last.content
+            / = match_user.messages.where(group_id: group.group_id).last.content
+            / = match_user.messages.last.content
+        %p.login_time
+          =format_posted_time(Group.find_by(id: group.group_id).messages.last.created_at)
+
+          / =format_posted_time(match_user.messages.where(group_id: group.group_id).last.created_at)
+          / =format_posted_time(match_user.messages.last.created_at)
+      - else
+        .user_info02
+          %p.message
+            メッセージのやりとりがありません。
