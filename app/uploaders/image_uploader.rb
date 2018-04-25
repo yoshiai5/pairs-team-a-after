@@ -1,7 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   if Rails.env.production?
-  # if Rails.env.development?
     include Cloudinary::CarrierWave
   else
     storage :file
@@ -26,15 +25,17 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # public配下に作成されるcacheの場所を変更（ローカル環境）
   def cache_dir
+    # 下記３つは、if文を入れる前に使用・試行していたロジック。
+    # "cache"
+    # "tmp/uploads"
+    # # "#{Rails.root}/tmp/uploads" ：NG
     if Rails.env.production?
     # if Rails.env.development?
+    # ：『cache』の保存先変更を確認する為に使用したが、本番環境には適用できず。
       "#{Rails.root}/tmp/uploads"
     else
       "cache"
     end
-    # "cache"
-  #   "tmp/uploads"
-  #   # "#{Rails.root}/tmp/uploads" ：NG
   end
 
   def extension_whitelist
