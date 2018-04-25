@@ -341,10 +341,23 @@
 .button_private_mode {
   @include button_private_mode;
 }
+// 男性の場合
 .private_mode_paid_header_male_view {
   width: 721px;
   height: 412px;
   background-image: url(https://lh3.googleusercontent.com/C8a86oe0nn81xBMqVphNk8GpIvvE9g3wWXxYW31uD-LglOua6eQaTLk1Zf7vbY0df5sAWv3Bq1E_Jfg0Ma1e5VOIhcdmqAMGZDYtrFMSdVcbWlk2saVhN3_Y75SMPKuPL-wwZA6WvAcgn0zToKgh7CVprjmE75kgilJ4QjsVD2a1_oWXqVtptNo8QcM4aYO26j1NaAnG0JtlZh2qDjRiWBv3x-kXEoceYm4RJ3bmCQMm4rEKfrEDvOHjA2-Rueoup31FwVnFBsAnWG6kHzUsEfd1DJyltDhMq_IZ4vXsLbDns65X8TD_qXtTJP5F3YgOQKezhSXp80Kid1cp5RUNCI0IA3TI3vW7TVyr9rnYUBAcsxyfcgy8YZfpiCFGIhOfYzDH0GUpI1Q0MOSpsu_r1aPu7E-0DWLCsRl_gJ_3gZrXsKhv4rnMhqRZP5axI3Q-vD0IO09KstyYgZnatFSU597p8yg-kQRY1y97mg-7p6Xo-E8lUglXPgw-cbRJEV7xxfH2DF2jpySQ1WSk4MCegrSi6tkXNwHfJLaoJF3zLYu_noErlvelaPw62RItKJeydqVUoz-TTc-LwYoRM1yLIxxOlXHA-cyVnvLgbgy7Z2W6LTrF77hPFR7FJLZBkj5pb3PNn3UnH9exb_WbXmfYxS71loFy5n_8=w567-h324-no);
+  background-size: contain;
+  .private_mode_plan {
+    position: relative;
+    top: 261px;
+    left: 36px;
+  }
+}
+// 女性の場合
+.private_mode_paid_header_female_view {
+  width: 721px;
+  height: 412px;
+  background-image: url(https://lh3.googleusercontent.com/pNqr97GCiaiqIzkCaufeHuMLihUEy_fYmX14Blnzs0BSCV6AcgkGBC8kKaWiM8l3AQhX8mWY4McESeXvelTnr974T0wUo5vuTcIDq3AyUTviFMNMNATegGBpbJZOpWwUW93Dy-kj2jBk_wEbShYSIivEf_xw5LYwOVQndsGnjh1aIRCP8-8Pm7RyDYaDzDoKUeawhTL7Cp0JOGHwLyncjl-6x35LWikcy6JRP3K-FqYLvLVfZVqE0HYPgZGlzMdIsUMSZJcNAPVtsdDxBBusnQsvGNJIAmIFyanDY_8mDiGPnA3nxxCQryUrxIcAI2DXDG1yiszWLuQ1Kz7Qeg4P7ErYaEixGQLIP-zdurT2YiSM2keNAQTSfv9RkuYsqoTRjkefTUyCr1GtA8HmEORX26lkLMsOBrhyMOQgEVV_ktunmPk4z3_k8-uoXo3U4SOXwHVpnvUK7FSUaOUhvsoCR2hRTbUEXomI9ucLNHRvXlwzOwHJ6L54An-Nwk_r1O0rRygahpq0KPwNlsm5Od7F4itzCiXlpdAMAd-f2vpAYXrfqY8IYsiV320VqoJnP956Slrsw5Hoy47mz7os8t_hiNamKLFhSvS9eZPTcpW27h_V1ZBBl1QF7iakrv68d8vuc2cZ4qgrmeWLIDtV38g3IwKWxQOpPAyM=w1043-h596-no);
   background-size: contain;
   .private_mode_plan {
     position: relative;
